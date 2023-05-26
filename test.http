@@ -1,0 +1,65 @@
+###signup
+
+POST http://localhost:8080/api/user/signup HTTP/1.1
+Content-Type: application/json
+
+# {
+#     "email":"mona@gmail.com",
+#     "password":"mona123"
+# }
+
+
+{
+    "email":"Riya@gmail.com",
+    "password":"riya123"
+}
+
+
+###login
+
+POST http://localhost:8080/api/user/login HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"Riya@gmail.com",
+    "password":"riya123"
+}
+
+
+###Create or Add items
+
+POST http://localhost:8080/api/items HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicGFzc3dvcmQiOiJpbml0IiwiZW1haWwiOiJpbml0IiwiX2lkIjoiaW5pdCIsIl9fdiI6ImluaXQifSwic3RhdGVzIjp7InJlcXVpcmUiOnt9LCJpbml0Ijp7Il9pZCI6dHJ1ZSwiZW1haWwiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJfX3YiOnRydWV9fX0sInNraXBJZCI6dHJ1ZX0sIiRpc05ldyI6ZmFsc2UsIl9kb2MiOnsiX2lkIjoiNjQ3MGIxZTNjZDVmMWI5NTM4MWQ0YTRjIiwiZW1haWwiOiJSaXlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJEhSdlVWa2tUNEM0L3ZRb3BKRkRWZWVXb3ZzUDkxSWR0cmNDdEdSSHU3WlFZR0hUL3lSRlA2IiwiX192IjowfSwiaWF0IjoxNjg1MTA3ODM3LCJleHAiOjE2ODUxMTUwMzd9.x8nYWd0-orgGrZhHwOTBa7HYpfJzcUeL9FtNWM5mE2M
+
+{
+    "task": "Task 7",
+    "description":"This is task 7" ,
+    "Status": "pending",
+    "userId":"64703662d0bc970f00aad5da"
+}
+
+###Delete item
+
+DELETE http://localhost:8080/api/items/64703999dc21b9823c32a18b HTTP/1.1
+
+
+###update description
+PUT http://localhost:8080/api/items/646f1a18f00733e2dc9d5490 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicGFzc3dvcmQiOiJpbml0IiwiZW1haWwiOiJpbml0IiwiX2lkIjoiaW5pdCIsIl9fdiI6ImluaXQifSwic3RhdGVzIjp7InJlcXVpcmUiOnt9LCJpbml0Ijp7Il9pZCI6dHJ1ZSwiZW1haWwiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJfX3YiOnRydWV9fX0sInNraXBJZCI6dHJ1ZX0sIiRpc05ldyI6ZmFsc2UsIl9kb2MiOnsiX2lkIjoiNjQ3MGIxZTNjZDVmMWI5NTM4MWQ0YTRjIiwiZW1haWwiOiJSaXlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJEhSdlVWa2tUNEM0L3ZRb3BKRkRWZWVXb3ZzUDkxSWR0cmNDdEdSSHU3WlFZR0hUL3lSRlA2IiwiX192IjowfSwiaWF0IjoxNjg1MTA3ODM3LCJleHAiOjE2ODUxMTUwMzd9.x8nYWd0-orgGrZhHwOTBa7HYpfJzcUeL9FtNWM5mE2M
+
+{
+    "description": " Up to 12GB RAM with RAM Plusand Monster 6000mAh battery with Auto Data Switching",
+    "Status":"Done"
+}
+
+###pagination
+
+GET http://localhost:8080/api/items/getItemPaginate?userId=64703662d0bc970f00aad5da&page=1 HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsicGFzc3dvcmQiOiJpbml0IiwiZW1haWwiOiJpbml0IiwiX2lkIjoiaW5pdCIsIl9fdiI6ImluaXQifSwic3RhdGVzIjp7InJlcXVpcmUiOnt9LCJpbml0Ijp7Il9pZCI6dHJ1ZSwiZW1haWwiOnRydWUsInBhc3N3b3JkIjp0cnVlLCJfX3YiOnRydWV9fX0sInNraXBJZCI6dHJ1ZX0sIiRpc05ldyI6ZmFsc2UsIl9kb2MiOnsiX2lkIjoiNjQ3MGIxZTNjZDVmMWI5NTM4MWQ0YTRjIiwiZW1haWwiOiJSaXlhQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJhJDEwJEhSdlVWa2tUNEM0L3ZRb3BKRkRWZWVXb3ZzUDkxSWR0cmNDdEdSSHU3WlFZR0hUL3lSRlA2IiwiX192IjowfSwiaWF0IjoxNjg1MTA3ODM3LCJleHAiOjE2ODUxMTUwMzd9.x8nYWd0-orgGrZhHwOTBa7HYpfJzcUeL9FtNWM5mE2M
+
+
+
+
